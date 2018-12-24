@@ -1,0 +1,2 @@
+# 一个简单的PersistentSearch控件使用源码
+	效果预览图在previewimages文件夹

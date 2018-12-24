@@ -1,0 +1,45 @@
+# CircleImageView的使用
+- 背景
+	- 在APP的使用过程，很多情况下默认的ImageView是不能满足需求的，由于图片大小、形状等等影响，圆形的图片显示未免有些过于难看，这种情况下圆形图片展示更为合适一些。
+	- 但是，自己去继承ImageView这个类去完善有些过于麻烦，不过，不用担心，已经有开源项目写好了并且封装了。
+	- [https://github.com/hdodenhof/CircleImageView](https://github.com/hdodenhof/CircleImageView)是其开源地址。
+- 使用
+	- 添加gradle依赖如下
+		- `compile 'de.hdodenhof:circleimageview:2.1.0'`
+		- 或者`implementation 'de.hdodenhof:circleimageview:2.1.0'`
+	- 在res/values新建attrs.xml（如果有则不必新建）添加如下代码，指定属性
+		- `<?xml version="1.0" encoding="utf-8"?>`
+		- `<resources>`
+    		- `<declare-styleable name="CircleImageView">`
+        - `<attr name="border_width" format="dimension" />`
+        - `<attr name="border_color" format="color" />`
+        - `<attr name="border_overlay" format="boolean" />`
+    		- `</declare-styleable>`
+		- `</resources>`
+	- 在布局中添加如下
+		- `<de.hdodenhof.circleimageview.CircleImageView`
+        - `xmlns:circleimageview="http://schemas.android.com/apk/res-auto"`
+        - `android:id="@+id/circle_image_view"`
+        - `android:layout_width="wrap_content"`
+        - `android:layout_height="wrap_content"`
+        - `android:src="@drawable/ic_launcher_background"`
+        - `circleimageview:civ_border_color="@android:color/holo_red_light"`
+        - `circleimageview:civ_border_overlay="false"`
+        - `circleimageview:civ_border_width="2dp"`
+        - `circleimageview:civ_fill_color="@android:color/holo_blue_light"/>`
+	- 其余使用类似ImageView，不多赘述
+- 源码分析
+	- CircleImageView继承自ImageView，核心方法为setup
+	- 实现步骤如下
+		- 首先通过setImageBitmap()或者setImageDrawerable()或者setImageResource()或者setImageURL()方法设置图片,如果xml布局设置则无需java代码指定。
+		- 进入构造函数CircleImageView()获取自定义参数，以及调用setup()。
+		- 使用setup()函数，进行图片画笔边界画笔(Paint)一些重绘参数初始化。
+			- 构建渲染器BitmapShader用Bitmap来填充绘制区域
+			- 设置样式和内外圆半径计算等
+			- 调用updateShaderMatrix()函数和invalidate()函数
+		- 进入updateShaderMatrix()函数，计算缩放比例和平移，设置BitmapShader的Matrix参数等等。
+		- 触发ondraw()函数完成最终的绘制，使用配置好的Paint先画出绘制内圆形来以后再画边界圆形。
+- 效果对比
+	- 与原来的ImageView效果对比，好看很多。
+	- 左边是ImageView，右边是CircleImageView。
+	- ![](http://g.recordit.co/A0pEwtaOPp.gif)

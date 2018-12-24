@@ -1,0 +1,31 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:orientation="horizontal"
+    android:padding="8dp"
+    >
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:src="@mipmap/pic_history"
+        android:layout_alignParentLeft="true"
+        android:layout_centerInParent="true"
+        />
+    <TextView
+        android:id="@+id/tv_history_content"
+        android:layout_width="260dp"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        />
+    <ImageView
+        android:id="@+id/tv_history_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:src="@mipmap/pic_delete"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+
+</RelativeLayout>

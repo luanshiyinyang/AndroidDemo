@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.zc.helloworld.MainActivity"
+    android:orientation="vertical"
+    >
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        fab:fab_labelStyle="@style/labels_style"
+        android:layout_marginLeft="100dp">
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_b1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_colorNormal="#2ca949"
+            fab:fab_colorPressed="#000000"
+            fab:fab_title="b1" />
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_b2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_colorNormal="#2ca949"
+            fab:fab_colorPressed="#ffffff"
+            fab:fab_title="b2"/>
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_b3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_colorNormal="#2ca949"
+            fab:fab_colorPressed="#000000"
+            fab:fab_title="b3"/>
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+
+
+
+
+</LinearLayout>
