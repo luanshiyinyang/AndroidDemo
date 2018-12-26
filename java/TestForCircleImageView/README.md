@@ -3,6 +3,7 @@
 	- 在APP的使用过程，很多情况下默认的ImageView是不能满足需求的，由于图片大小、形状等等影响，圆形的图片显示未免有些过于难看，这种情况下圆形图片展示更为合适一些。
 	- 但是，自己去继承ImageView这个类去完善有些过于麻烦，不过，不用担心，已经有开源项目写好了并且封装了。
 	- [https://github.com/hdodenhof/CircleImageView](https://github.com/hdodenhof/CircleImageView)是其开源地址。
+	- 当然，谷歌官方在后来已经加入了CircleImageView控件，放在support包中，需要添加依赖support，这里只介绍第三方使得。
 - 使用
 	- 添加gradle依赖如下
 		- `compile 'de.hdodenhof:circleimageview:2.1.0'`
