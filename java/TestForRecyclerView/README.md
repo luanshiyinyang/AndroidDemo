@@ -1,0 +1,25 @@
+# RecyclerView的使用
+- 前言
+	- 在之前的博客中我介绍了ListView如何使用，当然那部分博客由于没有考虑基础的问题，写的跨度太大，后面我会全部重构的。
+	- ListView是一个滑动列表控件，随着手指的滑动，让屏幕外的内容到达屏幕内，屏幕内的内容移除屏幕区域，一度被认为这是最常用也最难用的控件。（焦点、高度等问题层出不穷）但是，ListView有几个致命的弊端，尤其的就是运行效率了，可能小项目还看不出来，但是填充数据大的时候，ListView的劣势就体现出来了。
+	- 当然，在之前，我们选择两种主要手段提高效率。（即使用convertView代替getView()，建立内部类ViewHolder缓存控件示例，避免重复控件绑定）
+- 背景
+	- 为了方便用户的使用，拜托ListView的限制（只能纵向延伸），官方新增了控件RecyclerView，它被放在support库中，所以使用需要添加依赖如下.
+		- `implementation 'com.android.support:recyclerview-v7:27.1.1'`
+	- 相比于ListView它优化了效率，且支持横向滚动和瀑布流布局。还有很多优点可以查看官方文档。
+- 使用
+	- 布局中加入：编辑默认生成的activity_main.xml如下,添加控件如下
+		- `<android.support.v7.widget.RecyclerView`
+	    - `android:id="@+id/recycler_view"`
+	    - `android:layout_width="match_parent"`
+	    - `android:layout_height="match_parent">`
+	    - `</android.support.v7.widget.RecyclerView>`
+	- 创建适配器：创建java文件MyRecycleViewAdapter.java
+		- 代码见MyRecyclerAdapter.java
+	- 注册点击事件
+		- 很遗憾，RecyclerView没有提供类似ListView那样的setOnItemClickListener的方法，当然这不是没写，而是ListView注册事件不是很人性化，它注册的是子项事件但是当我想要点击子项中的某个控件就有很多焦点问题，处理比较麻烦，RecyclerView没有这个问题，他的点击事件写在适配器中。
+		- 见代码。
+	- 运行结果
+		- ![](http://g.recordit.co/H7urGBtA1H.gif)
+- 补充说明
+	- 参考书《第一行代码》
